@@ -4,5 +4,6 @@ angular.module('video-player')
   templateUrl: 'src/templates/app.html',
   controller: function() {
     this.videos = window.exampleVideoData;
+    this.currentVideo = window.exampleVideoData[0];
   }
 });
