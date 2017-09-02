@@ -4,7 +4,7 @@ angular.module('video-player')
   templateUrl: 'src/templates/app.html',
   controller: function(youTube) {
     this.videos = window.exampleVideoData;
-    this.currentVideo = this.videos[0];
+    this.currentVideo = window.exampleVideoData[0];
     this.onClick = function(index) {
       this.selectVideo(index);
     }.bind(this);
@@ -12,12 +12,12 @@ angular.module('video-player')
       this.currentVideo = this.videos[index];
     };
     this.searchResults = function() {
-      // this.search('angular', 5, function() {
-
-      // });
+      console.log('can you see me');
     };
-    youTube.search('angular', 5, function(response) {
-      console.log(response);
-    });
+    this.callback = function(response) {
+      this.videos = response;
+      this.currentVideo = response[0];
+    }.bind(this);
+    youTube.search('puppies', 5, this.callback);
   }
 });
