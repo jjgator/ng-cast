@@ -4,7 +4,7 @@
       ng-src={{$ctrl.video.snippet.thumbnails.default.url}} />
   </div>
   <div class="media-body">
-    <div class="video-list-entry-title">
+    <div ng-click="$ctrl.onClick($parent.$index)" class="video-list-entry-title">
       {{$ctrl.video.snippet.title}}
     </div>
     <div class="video-list-entry-detail">
